@@ -16,6 +16,14 @@ app.get("/home/player/first_name/:first_name", (req, res) =>{
     })
 })
 
+app.get("/home/player/last_name/:last_name", (req, res) =>{
+    Player.find({last_name: req.params.last_name})
+    .then(player => {
+        res.json(player)
+    })
+})
+
+
 app.get("/home/teams/:team", (req, res) => {
     Player.find({"team.name" : req.params.team})
     .then(team => {
