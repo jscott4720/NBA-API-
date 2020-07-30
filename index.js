@@ -9,8 +9,8 @@ app.get('/home', (req, res) => {
     })
 })
 
-app.get("/home/team", (req, res) =>{
-    Player.find({})
+app.get("/home/team/:id", (req, res) =>{
+    Player.find(req.params)
     .then(team => {
         res.json(team)
     })
