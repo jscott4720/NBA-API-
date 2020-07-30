@@ -1,6 +1,7 @@
 const app = require('express')()
 const Player = require('./models/Player.js')
-
+const bodyParser = require("body-parser")
+app.use(bodyParser.json());
 
 app.get('/home', (req, res) => {
     Player.find({})
@@ -29,6 +30,13 @@ app.get("/home/teams/:team", (req, res) => {
     .then(team => {
         res.json(team)
     })
+})
+
+app.post('/home', (req, res) => {
+    Player.create(req.body)
+        .then(player => {
+            res.json(player)
+        })
 })
 
 app.listen(4001, () => {
