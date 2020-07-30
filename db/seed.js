@@ -1,16 +1,23 @@
-const axios = require('axios');
-const fs = require('fs')
+const Player = require("../models/Player");
+const playersJSON = require("./players.json");
 
+const playerData = playersJSON.map((item) => {
+  player = {};
+  player.id = item.id;
+  player.first_name = item.first_name;
+  player.height_feet = item.height_feet;
+  player.height_inches = item.height_inches;
+  player.last_name = item.last_name;
+  player.position = item.position;
+  player.team = item.team;
+  player.weight_pounds = item.weight_pounds;
+  return player;
+});
 
-axios.get('https://www.balldontlie.io/api/v1/players?per_page=100')
-  .then( res => {
-    let players = JSON.stringify(res)
-    fs.writeFile()
-    console.log(res);
-  })
-  .catch(error => {
-    console.log(error);
-  })
-  .then( () => {
-    // always executed
+Player.deleteMany({}).then(() => {
+  Player.create(playerData).then((players) => {
+    console.log("hello world")
+    console.log(players);
+    process.exit();
   });
+});
