@@ -52,6 +52,8 @@ app.put ('/home/player/first_name/:first_name', (req, res) => {
       })
   })
 
-app.listen(4001, () => {
-    console.log("listening..")
-})
+  app.set("port", process.env.PORT || 4001);
+
+  app.listen(app.get("port"), () => {
+    console.log(`✅ PORT: ${app.get("port")} 🌟`);
+  });
