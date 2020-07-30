@@ -38,6 +38,12 @@ app.post('/home', (req, res) => {
             res.json(player)
         })
 })
+app.put ('/home/player/first_name/:first_name', (req, res) => {
+    Player.findOneAndUpdate({first_name: req.params.first_name}, req.body, {new : true})
+      .then(player => {
+        res.json(player)
+      })
+  })
 
 app.listen(4001, () => {
     console.log("listening..")
