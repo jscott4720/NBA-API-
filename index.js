@@ -45,6 +45,13 @@ app.put ('/home/player/first_name/:first_name', (req, res) => {
       })
   })
 
+  app.delete ('/home/player/first_name/:first_name', (req, res) => {
+    Player.findOneAndDelete({first_name: req.params.first_name})
+      .then(player => {
+        res.json(player)
+      })
+  })
+
 app.listen(4001, () => {
     console.log("listening..")
 })
