@@ -16,7 +16,8 @@ USE CRUD
 - Update: update the name of a 
 - Delete: deleting an unwanted player
 - Check all CRUD methods using Postman (www.postman.com OR download at https://www.postman.com/downloads/)
-Define routes here:
+
+# Define routes here:
 - players: ('/home') will show all players
 - first name: ('/drinks/player/first_name/:first_name') will find a player or multiple players based on their first name(use correct capitalization)
 - last name: ('/drinks/player/last_name/:last_name') will find a player or multiple players based on their last name (use correct capitalization)
