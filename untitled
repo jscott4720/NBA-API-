@@ -1,0 +1,1 @@
+heroku config:set DB_URL="mongodb+srv://jscott4720:thisisaHORRIBLEpassword@cluster0.ycuqi.mongodb.net/<dbname>?retryWrites=true&w=majority"

@@ -3,6 +3,10 @@ const Player = require('./models/Player.js')
 const bodyParser = require("body-parser")
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.redirect('/home')
+})
+
 app.get('/home', (req, res) => {
     Player.find({})
     .then(players => {
